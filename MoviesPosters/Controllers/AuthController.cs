@@ -90,6 +90,14 @@ namespace MoviesPosters.Controllers
             return RedirectToAction(nameof(Index), "Home");
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            _notyfService.Success("Logout Successfully");
+            return RedirectToAction(nameof(Index), "Home");
+        }
+
         private async Task<bool> CheckDuplicateEmail(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);

@@ -24,7 +24,7 @@ namespace MoviesPosters.Controllers
         {
             if(_signInManager.IsSignedIn(User))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Image");
             }
             return View();
         }
@@ -34,7 +34,7 @@ namespace MoviesPosters.Controllers
         {
             if (_signInManager.IsSignedIn(User))
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Image");
             }
             return View();
         }
@@ -87,7 +87,7 @@ namespace MoviesPosters.Controllers
                 return View(vm);
             }
             await _signInManager.SignInAsync(userByUserName, vm.RememberMe);
-            return RedirectToAction(nameof(Index), "Home");
+            return RedirectToAction(nameof(Index), "Image");
         }
 
         [HttpPost]

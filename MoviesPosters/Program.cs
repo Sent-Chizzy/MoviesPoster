@@ -20,6 +20,12 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.BottomRight; });
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Auth/Login";
+    options.LogoutPath = "/Auth/Logout";
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
